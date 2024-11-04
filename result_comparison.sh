@@ -24,9 +24,9 @@ roc_auc=$(echo "$best_model" | awk -F ',' '{print $6}')
 
 #Define image file part for confusion matrix based on data version and model name
 # Define path for confusion matrix image
-directory="reports"
-name=$(echo "$best_model" | awk -F, '{print $1 "_" $2}' | sed
-'s/,/_/g')
+# Assuming the image file follows the convention based on data version and model name
+confusion_matrix_file="$REPORT_DIR/${data_version}_${model_name}_confusion_matrix.png"
+
 
 # Generate the Markdown report
 {
@@ -40,7 +40,7 @@ name=$(echo "$best_model" | awk -F, '{print $1 "_" $2}' | sed
     echo "- **Precision**: $precision"
     echo "- **ROC_AUC**: $roc_auc"
     echo "- **Confusion Matrix**:"
-  echo "[Confusion Matrix Image](reports/data${name}_confusion_matrix.png)"
+  echo "![Confusion Matrix](./${data_version}_${model_name}_confusion_matrix.png)"
 } > "$REPORT_FILE"
 
 echo "Report generated: $REPORT_FILE"
