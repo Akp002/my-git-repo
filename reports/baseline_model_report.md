@@ -2,7 +2,10 @@
 ## Best Model Summary
 - **Data Version**: v1.6
 - **Model Name**: RandomForestClassifier
+## Metrics
 - **F1 Score**: 0.84
-- **Accuracy**: 
+- **Recall**: 0.87
+- **Precision**: 0.84
+- **ROC_AUC**: 0.59
 - **Confusion Matrix**:
-![](/home/akpos/week5/my-git-repo/reports/reports/v1.6_RandomForestClassifier_confusion_matrix.png)
+![Confusion Matrix](reports/reports/v1.6_RandomForestClassifier_confusion_matrix.png)
