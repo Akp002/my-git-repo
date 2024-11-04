@@ -23,7 +23,7 @@ f1_score=$(echo "$best_model" | awk -F ',' '{print $5}')
 roc_auc=$(echo "$best_model" | awk -F ',' '{print $6}')
 
 #Define image file part for confusion matrix based on data version and model name
-confusion_matrix_file="reports/${data_version}_${model_name}_confusion_matrix.png"
+confusion_matrix_file="/home/akpos/week5/my-git-repo/reports/data${data_version}_${model_name}_confusion_matrix.png"
 
 # Generate the Markdown report
 {
@@ -37,7 +37,7 @@ confusion_matrix_file="reports/${data_version}_${model_name}_confusion_matrix.pn
     echo "- **Precision**: $precision"
     echo "- **ROC_AUC**: $roc_auc"
     echo "- **Confusion Matrix**:"
-   echo "![Confusion Matrix](reports/$confusion_matrix_file)"
+   echo "![Confusion Matrix]($confusion_matrix_file)"
 } > "$REPORT_FILE"
 
 echo "Report generated: $REPORT_FILE"
