@@ -8,4 +8,4 @@
 - **Precision**: 0.84
 - **ROC_AUC**: 0.59
 - **Confusion Matrix**:
-![Confusion Matrix](/home/akpos/week5/my-git-repo/reports/datav1.6_RandomForestClassifier_confusion_matrix.png)
+[Confusion Matrix Image](reports/data_confusion_matrix.png)
