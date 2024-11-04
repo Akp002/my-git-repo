@@ -22,25 +22,24 @@ recall=$(echo "$best_model" | awk -F ',' '{print $4}')
 f1_score=$(echo "$best_model" | awk -F ',' '{print $5}')
 roc_auc=$(echo "$best_model" | awk -F ',' '{print $6}')
 
-#Define image file part for confusion matrix based on data version and model name
-# Define path for confusion matrix image
-# Assuming the image file follows the convention based on data version and model name
-confusion_matrix_file="$REPORT_DIR/${data_version}_${model_name}_confusion_matrix.png"
 
+
+# Define path for confusion matrix image
+confusion_matrix_file="/home/akpos/week5/my-git-repo/reports/datav1.5_RandomForestClassifier_confusion_matrix.png"
 
 # Generate the Markdown report
-{
-    echo "# Baseline Model Report"
-    echo "## Best Model Summary"
-    echo "- **Data Version**: $data_version"
-    echo "- **Model Name**: $model_name"
-    echo "## Metrics"
-    echo "- **F1 Score**: $f1_score"
-    echo "- **Recall**: $recall"
-    echo "- **Precision**: $precision"
-    echo "- **ROC_AUC**: $roc_auc"
-    echo "- **Confusion Matrix**:"
-  echo "![Confusion Matrix](./${data_version}_${model_name}_confusion_matrix.png)"
-} > "$REPORT_FILE"
+cat <<EOF > "$REPORT_FILE"
+# Baseline Model Evaluation
+## Model Information
+* **Model Name**: $model_name
+* **Data Version**: $data_version
+## Performance Metrics
+* **F1-Score**: $f1_score
+* **Recall**: $recall
+* **Precision**: $precision
+* **ROC-AUC**: $roc_auc
+## Confusion Matrix
+![Confusion Matrix Image](${confusion_matrix_file})
+EOF
 
 echo "Report generated: $REPORT_FILE"
